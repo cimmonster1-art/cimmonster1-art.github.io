@@ -14,7 +14,11 @@ A browser-only brief-to-scope workspace for student freelancers. Open index.html
 
 The app has no application network requests, analytics, remote fonts or model API. Browser saving is opt-in and off by default; otherwise refresh closes the unsaved session. Exported files contain the information you entered, so review before sharing.
 
-Suggestions are deterministic keyword matching, not AI reasoning. They can miss context and negation, and are geared toward small website projects. They do not estimate cost, create contracts, submit proposals, verify consent or communicate with clients. A checkbox records the user's statement; it does not prove agreement. This is an early prototype, not tested with external users.
+Suggestions are deterministic keyword matching, not AI reasoning. Common negative phrases such as "no booking system" or "booking is not required" become clarification questions rather than suggested deliverables. Mixed positive and negative mentions are flagged. This is a narrow heuristic: long-distance negation, lists, implied exclusions and complex wording can still be misread. Review every suggestion. The tool is geared toward small website projects and does not estimate cost, create contracts, submit proposals, verify consent or communicate with clients. A checkbox records the user's statement; it does not prove agreement. This is an early prototype, not tested with external users.
+
+## Matching checks
+
+Run `node --test test-rules.cjs` with Node.js to check positive mentions, explicit exclusions, mixed requirements, sentence boundaries, repeated mentions and unmatched briefs. Node is only required to run these development tests; the app still runs directly in a browser.
 
 ## Origin and attribution
 
