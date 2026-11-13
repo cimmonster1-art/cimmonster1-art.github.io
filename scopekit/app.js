@@ -10,6 +10,20 @@ const rules=[
  {match:/\b(login|account|sign.?in|auth\w*)\b/i,title:'Account and access requirements',check:'Document user roles, authentication provider and recovery flow. Agree on security review and test accounts before implementation.',question:'What roles and private data are involved, and which authentication service should own them?'},
  {match:/\b(seo|search engine|google)\b/i,title:'Basic search metadata',check:'Agree on titles, descriptions and indexing configuration. Confirm no ranking or traffic guarantee is included.',question:'Is this limited to on-page metadata, or does it include ongoing content and search work?'}
 ];
+// Conservative phrase matching, not language understanding. Negative mentions
+// become questions for review instead of silently becoming deliverables.
+function inspectBrief(brief){
+ return rules.map(rule=>{
+  const mentions=[...brief.matchAll(new RegExp(rule.match.source,'gi'))].map(match=>{
+   const before=brief.slice(0,match.index).split(/[.!?;\n]|\b(?:but|however)\b/i).pop();
+   const negative=/\b(?:no|without|exclude|excluding|avoid|not|never|don't|do not|doesn't|does not|won't|will not)\s+(?:(?:need|want|require|include|any|a|an|the|custom|working|new|online|user|customer|automated)\s+)*$/i.test(before);
+   const after=brief.slice(match.index+match[0].length);
+   const negativeAfter=/^\s+(?:(?:system|functionality|feature|features|integration|processing)\s+)?(?:is|are)\s+not\s+(?:needed|required|included)\b/i.test(after);
+   return {phrase:match[0],negative:negative||negativeAfter};
+  });
+  return {rule,positive:mentions.find(m=>!m.negative),negative:mentions.find(m=>m.negative)};
+ }).filter(result=>result.positive||result.negative);
+}
 let items=[],questions=[];
 function download(name,text,type){const u=URL.createObjectURL(new Blob([text],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
 function render(){
@@ -24,9 +38,9 @@ function render(){
 }
 function updateCount(){$('count').textContent=`${items.length} deliverables · ${items.filter(i=>i.confirmed).length} confirmed`}
 function build(){const brief=$('brief').value.trim();if(!brief){$('status').textContent='Add a brief first, or try the sample.';$('brief').focus();return}if(items.length&&!confirm('Replace the current plan? Export or download a backup first if you want to keep your edits.'))return;
- const matched=rules.filter(r=>r.match.test(brief));items=matched.map(r=>({title:r.title,check:r.check,confirmed:false,evidence:`Suggested because the brief mentions “${brief.match(r.match)[0]}”.`}));
+ const inspected=inspectBrief(brief),matched=inspected.filter(r=>r.positive);items=matched.map(({rule:r,positive,negative})=>({title:r.title,check:r.check,confirmed:false,evidence:`Suggested because the brief mentions “${positive.phrase}”.${negative?' A negative mention was also found; clarify the boundary before including this.':''}`}));
  if(!items.length)items=[{title:'Define the core deliverable',check:'Describe the exact output and a concrete demonstration that will show it works.',confirmed:false,evidence:'No keyword rules matched. Start with a manual scope.'}];
- questions=[...matched.map(r=>r.question),'What is the budget, deadline and revision limit?','Who approves the work, and what access and assets will they provide?'];render();$('status').textContent='Starting plan ready. Edit the suggestions; check an item only after your client confirms it.';
+ questions=[...matched.map(r=>r.rule.question),...inspected.filter(r=>r.negative).map(r=>`The brief may exclude “${r.negative.phrase}”. Confirm the boundary for ${r.rule.title.toLowerCase()}${r.positive?' — it also contains a positive mention':''}.`),'What is the budget, deadline and revision limit?','Who approves the work, and what access and assets will they provide?'];render();$('status').textContent='Starting plan ready. Edit the suggestions; check an item only after your client confirms it.';
 }
 $('generate').onclick=build;
 $('sample').onclick=()=>{if(items.length&&!confirm('Load the sample and replace your current work?'))return;items=[];$('project').value='Neighbourhood café website';$('brief').value='We need a small website for our café with a menu, contact details and a booking link. We have a logo but need it to work well on mobile. Ideally live next week.';$('boundaries').value='Hosting, domain registration, a custom booking backend and ongoing maintenance are not included unless separately agreed.';build()};
