@@ -1,0 +1,1 @@
+Substrate Daily Signal practice build. Fixed example, local browser progress. This is not the required Reddit hackathon demo. Built 14 November 2026; source remains in the private Reddit-H development repository. Phaser license is included.
