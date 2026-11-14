@@ -82,11 +82,11 @@
   {
     "name": "Substrate",
     "category": "Games & assets",
-    "status": "Working practice demo · Reddit playtest pending",
+    "status": "Live Reddit playtest",
     "stack": "Devvit Web · Phaser · TypeScript",
-    "summary": "A daily distance-deduction game with four probes, a candidate guide, saved progress and a shareable result. Try the fixed practice example; Reddit upload and live playtesting are pending.",
-    "url": "https://cimmonster1-art.github.io/demos/substrate/?demo=1",
-    "cta": "Play the practice puzzle",
+    "summary": "A daily distance-deduction game with four probes, a candidate guide, saved progress and a shareable result. Uploaded to Devvit and tested in a public Reddit community.",
+    "url": "https://www.reddit.com/r/SubstrateSignalPlay/comments/1xvvuhx/substrate_the_living_organism_of/",
+    "cta": "Play on Reddit",
     "image": ""
   },
   {
