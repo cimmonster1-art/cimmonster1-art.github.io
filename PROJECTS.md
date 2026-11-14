@@ -7,9 +7,9 @@ This directory consolidates navigation, not source trees. Independent applicatio
 | Display name | Repository / evidence | Focus | Status |
 |---|---|---|---|
 | Bio Galaxy | [Bio-Galaxy](https://github.com/cimmonster1-art/Bio-Galaxy) / [Devpost](https://devpost.com/software/bio-galaxy) | 3D scientific exploration | Public source; hackathon submission |
-| Heliora Studio | ASTRO-INSIGHT (private) | Celestial visualizations, React/Vite | Personal application; external services need configuration |
+| Heliora Studio | ASTRO-INSIGHT (private) | Celestial visualizations, React/Vite | Working free reference demo; signed-in paid features require separate checks |
 | RiceLayer | [Rice-later](https://github.com/cimmonster1-art/Rice-later) | CSS theming extension | Public-source prototype |
-| ScopeKit | [Live demonstration](https://scopekit-charli.cha209.chatgpt.site/) | Rule-based scope planning | Working demo; LaunchPad Hacks draft |
+| ScopeKit | [Live demonstration](https://scopekit-charli.cha209.chatgpt.site/) | Rule-based scope planning | Working demo; submitted to LaunchPad, GenHacks and Arbiter (no award claimed) |
 | Titanic ML | Kaggle charl1, private notebook | Tabular machine learning | Saved run fails at data loading; no score asserted |
 | Autoretto | Autoretto (private) | Media release operations | Development project; deployment paused; Devpost draft |
 
@@ -40,3 +40,7 @@ This directory consolidates navigation, not source trees. Independent applicatio
 - Setup/test commands are entry points for review, not evidence that every current branch passes.
 - Existing source, repository names, deployments and visibility were preserved.
 - AI assistance is disclosed. Do not infer independent manual authorship, paid-client history or awards.
+
+## November 14 expansion
+
+The browsable [complete catalogue](work.html) covers 20 projects and product groups, including Roblox alphas, CSV Audit and the SourceStore asset packages. Heliora has a working reference demo on Cloudflare Pages. The profile distinguishes verified demos from private or incomplete prototypes. No customer endorsement or paid-client claim was added.

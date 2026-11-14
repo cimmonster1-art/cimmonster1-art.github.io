@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Heliora Studio",
+    "category": "Interactive & 3D",
+    "status": "Working reference demo",
+    "stack": "React · TypeScript · Three.js",
+    "summary": "Interactive celestial geometry, local city search and a free static deployment. Reference mode, chart calculation and pricing presentation checked; signed-in paid services remain a separate verification task.",
+    "url": "https://heliora-studio.pages.dev/sky-live?demo=1",
+    "cta": "Explore reference scene",
+    "image": "project-media/heliora-reference.jpg"
+  },
+  {
+    "name": "ScopeKit",
+    "category": "Web & tools",
+    "status": "Working demo · 3 submissions",
+    "stack": "HTML · CSS · JavaScript",
+    "summary": "Editable deliverables, acceptance checks, Markdown export and JSON backup/restore. Submitted to LaunchPad, GenHacks and Arbiter; no award claimed.",
+    "url": "https://scopekit-charli.cha209.chatgpt.site/",
+    "cta": "Try the planner",
+    "image": ""
+  },
+  {
+    "name": "Daylight Café",
+    "category": "Web & tools",
+    "status": "Fictional website concept",
+    "stack": "HTML · CSS · JavaScript",
+    "summary": "Responsive café website with original SVG illustrations and working menu filters. A personal demonstration with recorded desktop and mobile checks.",
+    "url": "https://www.freelancer.com/portfolio-items/13581153-daylight-cafe-website-concept",
+    "cta": "View case study",
+    "image": ""
+  },
+  {
+    "name": "Bio Galaxy",
+    "category": "Interactive & 3D",
+    "status": "Public source · Devpost submission",
+    "stack": "React · TypeScript · Three.js",
+    "summary": "A biology exploration interface connecting scientific subjects through interactive visualization. No clinical accuracy or measured learning outcome is claimed.",
+    "url": "https://devpost.com/software/bio-galaxy",
+    "cta": "View Devpost project",
+    "image": ""
+  },
+  {
+    "name": "CSV Audit",
+    "category": "Data & research",
+    "status": "Source and tests available",
+    "stack": "Python · CSV · JSON",
+    "summary": "Flags missing fields, exact duplicate records, duplicate keys and malformed rows without changing the input. Handles quoted and multiline CSV values.",
+    "url": "https://github.com/cimmonster1-art/cimmonster1-art.github.io/tree/main/csv-audit",
+    "cta": "Read source and tests",
+    "image": ""
+  },
+  {
+    "name": "RiceLayer",
+    "category": "Web & tools",
+    "status": "Public-source prototype",
+    "stack": "Browser extension · CSS",
+    "summary": "A CSS-only website theming extension with sanitization and rollback paths. A prototype rather than an extension-store release.",
+    "url": "https://github.com/cimmonster1-art/Rice-later",
+    "cta": "Browse the repository",
+    "image": ""
+  },
+  {
+    "name": "ODDHOUR: Don’t Wake the Mall",
+    "category": "Games & assets",
+    "status": "Published alpha",
+    "stack": "Roblox · Luau · Python",
+    "summary": "A creature-rescue loop with a collection, server-side progression and persistence checks. The image is an actual gameplay capture. Player retention and commercial success are unproven.",
+    "url": "https://www.roblox.com/games/86205039323610",
+    "cta": "Open Roblox experience",
+    "image": "project-media/oddhour-gameplay.jpg"
+  },
+  {
+    "name": "Steal a Cryptid",
+    "category": "Games & assets",
+    "status": "Local update · release checks pending",
+    "stack": "Roblox · Luau · Blender",
+    "summary": "Creature collection, moonlit dens and echo raids. The Moonlight update includes rebuilt models and UI; local validation is distinct from a completed public release.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Substrate",
+    "category": "Games & assets",
+    "status": "Development project",
+    "stack": "Devvit Web · Phaser · TypeScript",
+    "summary": "A subreddit rendered as a shared organism with daily actions and collective growth. A new daily-game entry is in development; no current submission or prize is claimed.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Math Atlas",
+    "category": "Interactive & 3D",
+    "status": "Private-source prototype",
+    "stack": "Mathematical visualization",
+    "summary": "Explores mathematical concepts through browser-based visual interfaces. Project overview available in the private development repository.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Soma",
+    "category": "Interactive & 3D",
+    "status": "Private-source prototype",
+    "stack": "Anatomy · Molecular visualization",
+    "summary": "Schematic anatomy and molecular exploration for teaching concepts. It is not a clinical digital twin.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Alchemia",
+    "category": "Games & assets",
+    "status": "Private-source prototype",
+    "stack": "Browser learning game",
+    "summary": "A chemistry learning game prototype. Educational effectiveness has not been measured.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Autoretto",
+    "category": "Web & tools",
+    "status": "Development project",
+    "stack": "Media operations · Web application",
+    "summary": "Media release and channel-workflow tooling. Hosting and external integrations require operational verification before a live demonstration.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Academic OS",
+    "category": "Web & tools",
+    "status": "Private development project",
+    "stack": "Structured state · Validation",
+    "summary": "Academic workflow and validation experiments. Student records and course material are excluded from this portfolio.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "VELLAVI",
+    "category": "Web & tools",
+    "status": "Commerce implementation",
+    "stack": "Next.js · Supabase · Stripe",
+    "summary": "A storefront implementation with database and payment integration code. Implementation presence is not a claim of completed commercial operations.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Soft Circuit",
+    "category": "Web & tools",
+    "status": "Commerce implementation",
+    "stack": "Next.js",
+    "summary": "A separate commerce interface project. Launch, fulfillment and payment checks remain distinct from the code demonstration.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "HELO",
+    "category": "Interactive & 3D",
+    "status": "Related starter project",
+    "stack": "AI Studio · Celestial interface",
+    "summary": "An exploratory starter with dependencies overlapping the celestial application work. Listed for completeness rather than as a separate flagship.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "CASMI 2026",
+    "category": "Data & research",
+    "status": "Research prototype",
+    "stack": "Python · NumPy · pandas · PyArrow",
+    "summary": "A spectral-library retrieval baseline. Evaluation and verified competition submission remain pending; no rank or benchmark is asserted.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "Titanic ML",
+    "category": "Data & research",
+    "status": "Notebook needs repair",
+    "stack": "Python · Tabular machine learning",
+    "summary": "A private Kaggle learning notebook with an unresolved data-loading failure. No evaluated model score is claimed.",
+    "url": "",
+    "cta": "",
+    "image": ""
+  },
+  {
+    "name": "SourceStore asset packages",
+    "category": "Games & assets",
+    "status": "Published product catalogue",
+    "stack": "Blender · Procedural models · Synthetic audio",
+    "summary": "Original creature and character assets plus synthetic audio packs. Product documentation and purchase terms are available in the store.",
+    "url": "https://payhip.com/SourceSt0re",
+    "cta": "View asset catalogue",
+    "image": ""
+  }
+]

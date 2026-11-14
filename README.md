@@ -14,11 +14,14 @@ Open http://localhost:8765. No framework, package installation, service credenti
 
 ## Contents
 
-- `index.html`: responsive, accessible static portfolio with category filters and expandable project notes.
+- `index.html`: selected case studies with expandable project notes.
+- `work.html`: complete, filterable catalogue of 20 personal projects and product groups.
+- `project-catalogue.json`: the public catalogue data.
+- `project-media/`: actual Heliora and ODDHOUR interface captures.
 - `PROJECTS.md`: complete repository mapping and review decisions.
 - `charli-myers-public-cv.pdf`: public CV without private contact details.
 
-The full application CV with private contact details is maintained separately and is not published here. Illustrations are original conceptual diagrams, not screenshots. Project source keeps its original license and visibility. No private source or credentials are bundled.
+The full application CV with private contact details is maintained separately and is not published here. Captures are labelled as actual interfaces; the Daylight concept uses original illustrations. Project source keeps its original license and visibility. No private source or credentials are bundled.
 
 ## Verification
 
