@@ -23,7 +23,7 @@ Different state strings flag possible conflicts. This is not semantic truth dete
 #BuildHybridAI 2026: https://firebasehybridaihackathon.devpost.com/
 $30,000 cash pool; $3,000 Web/Chrome category. Deadline listed as November 30 at 14:00 PST (December 1 at 08:00 Brisbane).
 
-This prototype is NOT yet eligible as a completed submission. It does NOT currently call Firebase AI Logic. Project creation failed in the Firebase console during setup; no billing was enabled. Required next steps: dedicated free-tier Firebase project, AI Logic configuration, production App Check, implemented and verified on-device/cloud inference, open-source repository license, recorded demo, registration and submission. Do not claim AI runtime or tests until observed.
+This prototype is NOT yet eligible as a completed submission. It does NOT currently call Firebase AI Logic. After an initial console error, a retry created the dedicated Firebase project signalglass-cf657 on the Spark ($0/month) plan and registered SignalGlass Web. API activation is paused at the displayed Gemini Additional Terms acceptance step awaiting user approval; no billing was enabled. Required next steps: dedicated free-tier Firebase project, AI Logic configuration, production App Check, implemented and verified on-device/cloud inference, open-source repository license, recorded demo, registration and submission. Do not claim AI runtime or tests until observed.
 
 ## Intended hybrid feature
 
@@ -43,3 +43,7 @@ Official docs: https://firebase.google.com/docs/ai-logic/hybrid/web/get-started
 ## Privacy
 
 No analytics or AI calls in this initial version. Use synthetic data for demos. Export files may contain entered content; keep them appropriately private. This is a prototype without a security or accessibility audit.
+
+## Observed browser checks, 17 November 2026 Brisbane
+
+The live site rendered six reports/two conflicts. Recording a reason for R01 changed the counters to one conflict/one decision. Adding a new West gate report reopened the decision (seven reports/two conflicts/zero decisions). Keyboard Home on replay produced an empty frame. Export downloaded a JSON workspace. Import round-trip was initiated; confirmation still needs checking. No AI, mobile, screen-reader or offline-reload tests are claimed.
