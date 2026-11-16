@@ -16,7 +16,7 @@ const vals=[['REPORTS',doc.getElementById('count').textContent],['UNRESOLVED',do
 vals.forEach(([label,value],i)=>{text(value,86+i*220,272,210,48,i===1?'#ffb180':'#c7f677');text(label,86+i*220,303,210,14,'#9eb1b7');});
 let y=353;for(const topic of doc.querySelectorAll('#topics button')){let s=topic.innerText.replace(/\n/g,' · ');text(s,86,y,1080,24);y+=53;}
 if(chapter===3||chapter===4)text(doc.getElementById('resolution').innerText||'New evidence reopened the earlier decision.',800,265,380,19,'#c7f677',28);
-}else if(doc){const s=doc.getElementById('aiStatus').textContent; text(s,76,242,1120,18,'#c7f677',26);const draft=doc.getElementById('aiDraft').textContent;let cleaned=draft.replace(/^AI DRAFT[^\n]*\n\n/,'');text(cleaned||detail,76,285,1120,19,'#dfe8e9',27);}
+}else if(doc){const s=doc.getElementById('aiStatus').textContent; text(s,76,242,1120,18,'#c7f677',26);const draft=doc.getElementById('aiDraft').textContent;let cleaned=draft.replace(/^AI DRAFT[^\n]*\n\n/,'');if(cleaned){cleaned.split('\n\n').slice(0,3).forEach((block,i)=>{const lines=block.split('\n'),head=lines.shift(),sources=lines.pop(),body=lines.join(' ');const x=76+i*383;text(head,x,290,350,18,'#ffb180',24);text(body.length>250?body.slice(0,247)+'…':body,x,350,345,17,'#dfe8e9',22);text(sources,x,545,345,15,'#c7f677',20);});}else text(detail,76,285,1120,23,'#dfe8e9',32);}
 text(detail,48,615,1184,22,'#c7f677',30);text('Charli Myers · Built with Codex assistance · cimmonster1-art.github.io/signalglass',48,696,1180,15,'#91a7ae',20);
 if(busy){ctx.fillStyle='#c7f677';ctx.fillRect(0,712,Math.min(1280,(Date.now()-started)/100000*1280),8);}
 requestAnimationFrame(frame);
@@ -45,7 +45,7 @@ assert(doc.getElementById('count').textContent==='7'&&doc.getElementById('decisi
 set(4,'New evidence reopens the decision.','A new steward report arrives. The previous decision is no longer current.','No silent overwrites. Original reports remain available.');await wait(10000);
 set(5,'Privacy is an explicit choice.','Testing device-only inference first. No automatic cloud fallback.','This recording will show the actual result on this browser.');
 await ai(false);const local=doc.getElementById('aiStatus').textContent;
-checks.push('DEVICE: '+local);detail=local;await wait(6000);
+checks.push('DEVICE: '+local);detail='Device-only result shown above. No cloud request was permitted for this step.';await wait(6000);
 set(6,'Ask for a cited handover.','Cloud fallback is now explicitly allowed for these synthetic reports.','Firebase AI Logic + enforced App Check. Waiting for the real model response.');
 await ai(true);
 if(!doc.getElementById('aiDraft').textContent){await ai(true);}
