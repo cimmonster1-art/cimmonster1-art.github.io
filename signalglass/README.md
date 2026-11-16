@@ -23,7 +23,7 @@ Different state strings flag possible conflicts. This is not semantic truth dete
 #BuildHybridAI 2026: https://firebasehybridaihackathon.devpost.com/
 $30,000 cash pool; $3,000 Web/Chrome category. Deadline listed as November 30 at 14:00 PST (December 1 at 08:00 Brisbane).
 
-This prototype is NOT yet eligible as a completed submission. It does NOT currently call Firebase AI Logic. After an initial console error, a retry created the dedicated Firebase project signalglass-cf657 on the Spark ($0/month) plan and registered SignalGlass Web. API activation is paused at the displayed Gemini Additional Terms acceptance step awaiting user approval; no billing was enabled. Required next steps: dedicated free-tier Firebase project, AI Logic configuration, production App Check, implemented and verified on-device/cloud inference, open-source repository license, recorded demo, registration and submission. Do not claim AI runtime or tests until observed.
+This prototype is NOT yet eligible as a completed submission. It does NOT currently call Firebase AI Logic. After an initial console error, a retry created the dedicated Firebase project signalglass-cf657 on the Spark ($0/month) plan and registered SignalGlass Web. Gemini Developer API activation completed with user approval on 17 November. App Check is enforced; production attestation setup is in progress with separately approved reCAPTCHA Enterprise terms. No billing was enabled. Required next steps: dedicated free-tier Firebase project, AI Logic configuration, production App Check, implemented and verified on-device/cloud inference, open-source repository license, recorded demo, registration and submission. Do not claim AI runtime or tests until observed.
 
 ## Intended hybrid feature
 
