@@ -51,3 +51,5 @@ Official implementation docs:
 https://firebase.google.com/docs/ai-logic/hybrid/web/get-started
 https://firebase.google.com/docs/ai-logic/hybrid/web/configuration-options
 https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider
+
+Final deployed build 149ad0a7bc760041d8be8360da7043419aec2f52 was verified with a successful in_cloud response: three attributed topic summaries, valid report IDs, both conflicts unresolved, and main-stage agreement correctly framed as reported agreement. A prior draft was rejected by validation. Topic matching now normalizes case. The certainty-word guard remains limited and is not a factual accuracy guarantee.
