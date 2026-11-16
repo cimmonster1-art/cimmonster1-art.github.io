@@ -91,10 +91,10 @@ $('generateAI').onclick=async()=>{
  const parsed=JSON.parse(raw);
  if(!parsed||!Array.isArray(parsed.items)||parsed.items.length!==snapshot.length)throw Error('Draft did not cover every topic.');
  const seen=new Set(),parts=[];
- for(const item of parsed.items){const group=snapshot.find(g=>g.topic===item.topic);
- if(!group||seen.has(item.topic)||typeof item.summary!=='string'||!item.summary.trim()||item.summary.length>600||!Array.isArray(item.citations)||!item.citations.length||item.citations.some(id=>!group.reports.some(r=>r.id===id)))throw Error('Draft failed citation validation.');
+ for(const item of parsed.items){const topicKey=typeof item?.topic==='string'?key(item.topic):'';const group=snapshot.find(g=>g.topic===topicKey);
+ if(!group||seen.has(topicKey)||typeof item.summary!=='string'||!item.summary.trim()||item.summary.length>600||!Array.isArray(item.citations)||!item.citations.length||item.citations.some(id=>!group.reports.some(r=>r.id===id)))throw Error('Draft failed citation validation.');
  if(/\b(verified|proven|certain|guaranteed)\b/i.test(item.summary))throw Error('Draft overstated certainty. Generate again; source agreement is not verification.');
- seen.add(item.topic);
+ seen.add(topicKey);
  const unresolved=distinct(group.reports)>1&&!group.decision;
  parts.push(group.reports[0].topic+' / '+(unresolved?'UNRESOLVED':group.decision?'HUMAN DECISION RECORDED':'REPORTED AGREEMENT')+'\n'+item.summary+'\nSources: '+item.citations.join(', '));
  }
