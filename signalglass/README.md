@@ -46,4 +46,4 @@ No analytics or AI calls in this initial version. Use synthetic data for demos. 
 
 ## Observed browser checks, 17 November 2026 Brisbane
 
-The live site rendered six reports/two conflicts. Recording a reason for R01 changed the counters to one conflict/one decision. Adding a new West gate report reopened the decision (seven reports/two conflicts/zero decisions). Keyboard Home on replay produced an empty frame. Export downloaded a JSON workspace. Import round-trip was initiated; confirmation still needs checking. No AI, mobile, screen-reader or offline-reload tests are claimed.
+The live site rendered six reports/two conflicts. Recording a reason for R01 changed the counters to one conflict/one decision. Adding a new West gate report reopened the decision (seven reports/two conflicts/zero decisions). Keyboard Home on replay produced an empty frame. Export downloaded a JSON workspace. Import round-trip was attempted but the browser reported that the downloaded file could not be read due to file permissions. The application displayed the rejection; successful round-trip remains unverified. No AI, mobile, screen-reader or offline-reload tests are claimed.
