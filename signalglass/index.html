@@ -25,6 +25,7 @@ const demo=[
 {id:'R04',topic:'West gate',state:'Open',source:'Info desk',time:'16:22',note:'A visitor said they entered at the west gate. This is a second-hand report.'},
 {id:'R05',topic:'Water station',state:'Restocked',source:'Delivery runner',time:'16:27',note:'Two crates were dropped at the station. I have not confirmed the steward received them.'},
 {id:'R06',topic:'Main stage',state:'Ready',source:'Sound desk',time:'16:31',note:'Final audio check passed. Ready for the performance.'}];
+let aiBusy=false;
 let rows=structuredClone(demo), resolutions=Object.create(null), active='west gate';
 const key=s=>s.trim().toLocaleLowerCase('en');
 function visible(){return rows.slice(0,Number($('replay').value));}
@@ -47,7 +48,7 @@ root.append(svg('circle',{cx:x,cy:y,r:k===active?12:8,fill:color,'fill-opacity':
 root.append(svg('text',{x:350,y:171,'text-anchor':'middle',class:'graphsmall'},'SOURCE → CLAIM'),svg('text',{x:350,y:189,'text-anchor':'middle',class:'graphsmall'},visible().length+' REPORTS'));
 }
 function brief(gs){const lines=['SIGNALGLASS / EVENT HANDOVER','Synthetic scenario or user-entered records. No AI inference.',''];for(const[k,rs]of gs){const v=validResolution(k,rs);lines.push(rs[0].topic.toUpperCase());if(v){const r=rs.find(x=>x.id===v.id);lines.push('Human decision: '+r.state+' ['+r.id+']','Reason: '+v.reason);}else if(distinct(rs)>1){lines.push('UNRESOLVED — differing reports. Verify before relying on a state.');}else lines.push('Reported: '+rs[0].state+' (not independently verified).');for(const r of rs)lines.push('['+r.id+'] '+r.time+' · '+r.source+' · '+r.state+' — '+r.note);lines.push('');}return lines.join('\n');}
-function render(){
+function render(){if($('aiDraft')){$('aiDraft').textContent='';if(!aiBusy)$('aiStatus').textContent='No current AI draft. Generate from the visible evidence.';}
 const gs=groups();if(!gs.has(active))active=gs.keys().next().value;
 $('count').textContent=visible().length;$('conflicts').textContent=[...gs].filter(([k,rs])=>distinct(rs)>1&&!validResolution(k,rs)).length;
 $('decisions').textContent=[...gs].filter(([k,rs])=>validResolution(k,rs)).length;
@@ -68,7 +69,6 @@ $('import').onclick=()=>$('file').click();
 $('file').onchange=async()=>{try{const file=$('file').files[0];if(!file)return;if(file.size>250000)throw Error('File exceeds 250 KB.');const data=JSON.parse(await file.text());if(data.schema!=='signalglass/1'||!Array.isArray(data.reports)||data.reports.length>100)throw Error('Not a supported workspace.');const ids=new Set();const clean=data.reports.map(r=>{if(!r||!/^[R][0-9]{2,5}$/.test(r.id)||ids.has(r.id))throw Error('Invalid or duplicate report ID.');ids.add(r.id);for(const k of ['topic','state','source','time','note'])if(typeof r[k]!=='string'||!r[k].trim()||r[k].length>(k==='note'?1000:70))throw Error('Invalid report fields.');if(!/^\d{2}:\d{2}$/.test(r.time)||Number(r.time.slice(0,2))>23||Number(r.time.slice(3))>59)throw Error('Invalid report time.');return {id:r.id,topic:r.topic.trim(),state:r.state.trim(),source:r.source.trim(),time:r.time,note:r.note.trim()};});const safe=Object.create(null);for(const [k,v] of Object.entries(data.decisions||{})){if(['__proto__','constructor','prototype'].includes(k))continue;if(v&&typeof v.id==='string'&&ids.has(v.id)&&typeof v.reason==='string'&&v.reason.length<=1000&&typeof v.signature==='string'&&v.signature.length<=1000)safe[k]={id:v.id,reason:v.reason,signature:v.signature};}rows=clean;resolutions=safe;$('replay').max=rows.length;$('replay').value=rows.length;render();say('Imported '+rows.length+' reports. Decisions without matching evidence are ignored.');}catch(e){say('Import rejected: '+e.message);}finally{$('file').value='';}};
 $('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('brief').textContent);say('Handover brief copied, including citations and unresolved conflicts.');}catch{say('Clipboard unavailable. Select and copy the handover text directly.');}};
 render();
-let aiBusy=false;
 $('generateAI').onclick=async()=>{
  if(aiBusy)return;
  const snapshot=[...groups()].map(([topic,reports])=>({topic,reports,decision:validResolution(topic,reports)||null}));
