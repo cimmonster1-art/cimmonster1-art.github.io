@@ -1,49 +1,53 @@
 # SignalGlass
 
-A new evidence-first event handover prototype, started 17 November 2026. Built with OpenAI Codex assistance for Charli Myers. This does not reuse ScopeKit, Heliora or Substrate code.
+A new evidence-first event handover prototype, started 17 November 2026 for Charli Myers with OpenAI Codex assistance. No ScopeKit, Heliora or Substrate code reused. Reserved for #BuildHybridAI 2026 only, consistent with a distinct new project per contest.
 
 ## Run
-
-Open https://cimmonster1-art.github.io/signalglass/ or serve this directory with any static web server. No dependencies, build step, account or API key. All initial records are synthetic. Reports remain in memory; export JSON before refreshing.
+https://cimmonster1-art.github.io/signalglass/
+Static HTML; no build step. The evidence board needs no account. AI libraries load from Google's Firebase CDN only when requested. The deployed domain is registered with Firebase App Check; serving on another origin will not authorize cloud inference. All starting records are synthetic. Export before refresh; workspace is in memory.
 
 ## Implemented
+- Source-to-topic constellation, replay and explicit differing reported states.
+- Human decision plus source and reason, valid only for the exact evidence set reviewed.
+- New evidence reopens prior decisions.
+- Deterministic handover with original report IDs, roles and times.
+- Add reports, JSON export/import validation, copy brief.
+- Optional Firebase AI Logic drafts: ONLY_ON_DEVICE default; PREFER_ON_DEVICE with explicit cloud consent.
+- Production App Check through a score-based reCAPTCHA Enterprise site key restricted to cimmonster1-art.github.io. No debug token published; enforcement retained.
+- AI output requires exactly one item per topic, known citations belonging to each topic, bounded text and no duplicate topics. This verifies IDs, NOT factual entailment or completeness.
+- Unresolved and human-decision labels come from application state, never the model.
+- Stale AI output is discarded when evidence changes. Untrusted report text is identified as data in the prompt. Output uses textContent.
+- Exact SDK inference source displayed; absence is reported honestly.
 
-- Source-to-topic constellation with explicit conflicting states.
-- Report replay; decisions apply only to the exact report set reviewed.
-- Human decisions with a source and reason; new evidence reopens the decision.
-- Traceable handover text with report IDs, source roles, times and uncertainty.
-- Add reports; export/import validated JSON; copy brief.
-- Text rendered using textContent, no user-generated HTML.
-- Responsive layout and native keyboard-operable controls.
+Different state strings flag possible conflicts, not truth. Conditions may change over time. This is not an emergency-response tool.
 
-Different state strings flag possible conflicts. This is not semantic truth detection; a state may legitimately change over time. No independent verification or emergency-response suitability is claimed.
+## Infrastructure
+Firebase project signalglass-cf657, Spark $0/month, web app SignalGlass Web. Gemini Developer API and reCAPTCHA Enterprise enabled with explicit owner approval; App Check registration verified. No billing account or upgrade added. Optional AI monitoring and analytics not enabled.
 
-## Target competition — research, not a submitted entry
-
+## Target contest — not submitted
 #BuildHybridAI 2026: https://firebasehybridaihackathon.devpost.com/
-$30,000 cash pool; $3,000 Web/Chrome category. Deadline listed as November 30 at 14:00 PST (December 1 at 08:00 Brisbane).
+$30,000 cash pool; $3,000 Web/Chrome category. Deadline November 30 at 14:00 PST / December 1 at 08:00 Brisbane.
+Outstanding: supported-device inference demonstration, broader validation, public source license/repository packaging, recorded demo, registration and submission. No win or eligibility guarantee.
 
-This prototype is NOT yet eligible as a completed submission. It does NOT currently call Firebase AI Logic. After an initial console error, a retry created the dedicated Firebase project signalglass-cf657 on the Spark ($0/month) plan and registered SignalGlass Web. Gemini Developer API activation completed with user approval on 17 November. App Check is enforced; production attestation setup is in progress with separately approved reCAPTCHA Enterprise terms. No billing was enabled. Required next steps: dedicated free-tier Firebase project, AI Logic configuration, production App Check, implemented and verified on-device/cloud inference, open-source repository license, recorded demo, registration and submission. Do not claim AI runtime or tests until observed.
-
-## Intended hybrid feature
-
-A cited handover brief from only the records selected for sharing. Device-only inference by default; explicit user consent for cloud fallback. Show actual inference source from SDK response, never infer it from network status. Preserve unresolved conflicts and validate all returned report citations before displaying a draft. Source texts are untrusted data, not instructions. Human decisions remain explicit. Keep deterministic evidence review available if inference fails.
-
-Official docs: https://firebase.google.com/docs/ai-logic/hybrid/web/get-started
-
-## Judge demo plan
-
-1. Six contradictory festival reports produce two unresolved topics.
-2. Replay before/after the conflicting report appears.
-3. Inspect source and time, record a human decision with reason.
-4. Add new evidence and show the decision reopening automatically.
-5. Generate an AI handover, display actual inference location and linked citations (pending implementation).
-6. Demonstrate unsupported-device and no-network behavior honestly (pending verification).
+## Observed tests, 17 November 2026 Brisbane
+- Six reports/two conflicts rendered.
+- Human reason for R01 -> one conflict/one decision.
+- New West gate evidence -> seven reports/two conflicts/zero decisions.
+- Replay Home -> empty frame.
+- JSON export downloaded. Import roundtrip blocked by browser file-read permissions; unverified.
+- Device-only AI: browser reported local LanguageModel API unavailable; evidence handover remained available.
+- With explicit synthetic-data cloud consent: actual Firebase AI response produced three cited topic summaries, preserving both unresolved conflicts. SDK reported the exact source in_cloud. A subsequent model response overstated certainty as 'verified as ready'; added a conservative forbidden-certainty check and tightened attribution instructions. This is a limited guard, not semantic verification.
+- Selecting another topic cleared the prior AI draft.
+- JavaScript syntax checked.
+No successful on-device inference, mobile, screen-reader or offline-reload tests claimed.
 
 ## Privacy
+Cloud fallback sends visible records and decision reasons to Google Gemini only after the checkbox and Draft with AI action. App Check protection may contact Google when AI initializes. Use synthetic data for demos. Do not enter sensitive information. Export files contain workspace content. No security or accessibility audit claimed.
 
-No analytics or AI calls in this initial version. Use synthetic data for demos. Export files may contain entered content; keep them appropriately private. This is a prototype without a security or accessibility audit.
+## Demo plan
+Show conflicting sources, replay, human decision, new evidence reopening it, then an AI draft with cited sources and actual execution location. Demonstrate unsupported-device behavior honestly.
 
-## Observed browser checks, 17 November 2026 Brisbane
-
-The live site rendered six reports/two conflicts. Recording a reason for R01 changed the counters to one conflict/one decision. Adding a new West gate report reopened the decision (seven reports/two conflicts/zero decisions). Keyboard Home on replay produced an empty frame. Export downloaded a JSON workspace. Import round-trip was attempted but the browser reported that the downloaded file could not be read due to file permissions. The application displayed the rejection; successful round-trip remains unverified. No AI, mobile, screen-reader or offline-reload tests are claimed.
+Official implementation docs:
+https://firebase.google.com/docs/ai-logic/hybrid/web/get-started
+https://firebase.google.com/docs/ai-logic/hybrid/web/configuration-options
+https://firebase.google.com/docs/app-check/web/recaptcha-enterprise-provider
